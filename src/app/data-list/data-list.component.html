@@ -44,19 +44,31 @@
 
 <!-- table with data input from backend -->
 
-<h1>Data table</h1>
-<hr>
-
-<table>
+<table class="table table-bordered text-center">
   <tr>
-    <th *ngFor = "let column of headers">
-      {{column}}
-    </th>
+    <th class="text-center">Origin</th>
+    <th class="text-center">Destination</th>
+    <th class="text-center">Search for arrival</th>
+    <th class="text-center">Date</th>
+    <th class="text-center">Time</th>
   </tr>
-
-  <tr *ngFor = "let object of data">
-    <td * ngFor = "let column of headers">
-      {{object[column]}}
+  <ng-container *ngFor="let item of data">
+    <tr>
+    <td>
+      <span>{{item.origin}}</span>
+    </td>
+    <td>
+      <span>{{item.destination}}</span>
+    </td>
+    <td>
+      <span>{{item.search_for_arrival}}</span>
+    </td>
+    <td>
+      <span>{{item.date_travel}}</span>
+    </td>
+    <td>
+      <span>{{item.time_travel}}</span>
     </td>
   </tr>
-</table>
+  </ng-container>
+  </table>
