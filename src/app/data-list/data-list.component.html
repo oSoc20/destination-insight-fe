@@ -1,62 +1,28 @@
-<!-- hardcoded table without actual input from backend-->
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID:</th>
-      <th scope="col">Origin</th>
-      <th scope="col">Destination</th>
-      <th scope="col">OriginDate</th>
-      <th scope="col">OriginTime</th>
-      <th scope="col">DestinationDate</th>
-      <th scope="col">DestinationTime</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-      <td>Value</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- table with data input from backend -->
-
-<!-- <h1>Data table</h1>
-<hr>
-
-<table>
+<table class="table table-bordered text-center">
   <tr>
-    <th *ngFor = "let column of headers">
-      {{column}}
-    </th>
+    <th class="text-center">Origin</th>
+    <th class="text-center">Destination</th>
+    <th class="text-center">Search for arrival</th>
+    <th class="text-center">Date</th>
+    <th class="text-center">Time</th>
   </tr>
-
-  <tr *ngFor = "let object of data">
-    <td * ngFor = "let column of headers">
-      {{object[column]}}
+  <ng-container *ngFor="let item of data">
+    <tr>
+    <td>
+      <span>{{item.origin}}</span>
+    </td>
+    <td>
+      <span>{{item.destination}}</span>
+    </td>
+    <td>
+      <span>{{item.search_for_arrival}}</span>
+    </td>
+    <td>
+      <span>{{item.date_travel}}</span>
+    </td>
+    <td>
+      <span>{{item.time_travel}}</span>
     </td>
   </tr>
-</table> -->
+  </ng-container>
+  </table>

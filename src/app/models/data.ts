@@ -1,11 +1,8 @@
 
 export class Data {
-
-ID:number;
 origin: string;
 destination: string;
-originDate: string;
-originTime: string;
-destinationDate: string;
-destinationTime: string;
+search_for_arrival: number;
+date_travel: string;
+time_travel: string;
 }

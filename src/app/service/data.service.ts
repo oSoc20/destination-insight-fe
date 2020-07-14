@@ -6,7 +6,7 @@ import { Data } from '../models/data';
 @Injectable()
 export class DataService {
 
-   private dataServiceURI: string = 'http://localhost:3000/api';
+   public dataServiceURI: string = 'http://localhost:3000/api';
    private contentHeaders: HttpHeaders;
 
    constructor(private http: HttpClient) {

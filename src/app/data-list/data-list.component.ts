@@ -9,9 +9,9 @@ import { DataService } from '../service/data.service';
 })
 export class DataListComponent implements OnInit {
 
-  headers = ["ID", "Origin", "Destination", "OriginDate", "OriginTime", "DestinationDate", "DestinationTime"];
+  headers = ["origin","destination","search_for_arrival","date_travel","time_travel"];
   
-  data: Data[];
+  public data: Data[];
 
    constructor(private ds: DataService) {}
 
@@ -20,6 +20,6 @@ export class DataListComponent implements OnInit {
    }
 
    getAllData(){  
-    this.ds.getAllData().subscribe(data => { this.data = data; }, error => { console.error(error); });
+    this.ds.getAllData().subscribe(data => { this.data = data; console.log(data)}, error => { console.error(error); });
    }
 }
