@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // define the routes
 const appRoutes: Routes = [
   //{ path: '', component: DataListComponent },
-  { path: 'list', component: DataListComponent },
+  { path: 'link', component: DataListComponent },
   { path: 'upload', component: UploadComponent }
 ];
 

@@ -1,11 +1,24 @@
 
 <div class="sidenav">
-  <a class="nav-link active" routerLink="/link" routerLinkActive="active">
-    List data
-  </a>
-  <a class="nav-link active" routerLink="/upload" routerLinkActive="active">
-    Upload file
-  </a>
+  <div class="col-md-12 pt-5">
+    <img class="img-fluid" width="100" src="assets/nmbs-logo.png"/>
+  </div>
+  <div class="pt-5">
+    <a class="nav-link main-link" routerLink="/" routerLinkActive="active">
+      <strong>Destination Insight</strong>
+    </a>
+    <a class="nav-link" routerLink="/list" routerLinkActive="active">
+      List data
+    </a>
+    <a class="nav-link" routerLink="/upload" routerLinkActive="active">
+      Upload file
+    </a>
+  </div>
+
+
+  <div class="col-md-12 img-bottom-dots">
+    <img class="img-fluid" src="assets/bottom-dots.png"/>
+  </div>
 </div>
 <div class="right-content">
   <router-outlet></router-outlet>
