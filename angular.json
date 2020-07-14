@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "nmbs-data"
+  "defaultProject": "nmbs-data",
+  "cli": {
+    "analytics": "ff7860b4-2cf3-4717-bed4-03f40cc03aac"
+  }
 }

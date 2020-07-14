@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+import { FileUploader } from 'ng2-file-upload';
 
 const URL = 'http://localhost:3000/api/upload';
 
@@ -11,15 +11,23 @@ const URL = 'http://localhost:3000/api/upload';
 })
 export class UploadComponent implements OnInit {
 
-  title = 'ng8fileupload';
-  public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'photo' });
-  
+  uploader: FileUploader;
+  hasBaseDropZoneOver:boolean;
+  response: string;
+
   ngOnInit() {
-    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-         console.log('ImageUpload:uploaded:', item, status, response);
-         alert('File uploaded successfully');
-    };
- }
+    this.uploader = new FileUploader({
+      url: '',
+    });
+    this.hasBaseDropZoneOver = false;
+    this.response = '';
+
+    this.uploader.response.subscribe(res => this.response = res);
+  }
+
+  public fileOverBase(e:any):void{
+    this.hasBaseDropZoneOver = e;
+  }
+
 
 }

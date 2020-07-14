@@ -8,31 +8,33 @@ import { DataListComponent } from './data-list/data-list.component';
 import { UploadComponent } from './upload/upload.component';
 import { DataService } from './service/data.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 // define the routes
 const appRoutes: Routes = [
   //{ path: '', component: DataListComponent },
-  { path: 'list', component: DataListComponent},
-  { path: 'upload', component: UploadComponent}
+  { path: 'list', component: DataListComponent },
+  { path: 'upload', component: UploadComponent }
 ];
 
 @NgModule({
-  imports:      [ RouterModule.forRoot(appRoutes),
-                  BrowserModule,  
-                  HttpClientModule,
-                  ReactiveFormsModule, 
-                  FormsModule,
-                  NgbModule,                 
-                  BrowserAnimationsModule ],
-  declarations: [ AppComponent, FileSelectDirective, 
-                  DataListComponent, UploadComponent],
-  providers:    [ DataService ],
-  bootstrap:    [ AppComponent ]
+  imports: [RouterModule.forRoot(appRoutes),
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    FileUploadModule
+  ],
+  declarations: [AppComponent,
+    DataListComponent, UploadComponent],
+  providers: [DataService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

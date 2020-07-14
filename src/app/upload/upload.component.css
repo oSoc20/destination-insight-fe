@@ -1,21 +1,21 @@
-.header {
-    text-align: center;
-}
-
-.header h1 {
-    font-family: serif;
-    font-size: 38px;
-    font-family: 'Times New Roman';
-}
-
-.content {
-    margin: 100px;
-}
-
-.margin25 {
-    margin: 25px;
+.container{
+    padding: 50px;
 }
 
 .upload {
     cursor: pointer;
+}
+
+.my-drop-zone {
+    border: dotted 3px lightgray;
+}
+
+.nv-file-over {
+    border: dotted 3px red;
+}
+
+/* Default class applied to drop zones on over */
+
+.another-file-over-class {
+    border: dotted 3px green;
 }
