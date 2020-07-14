@@ -17,7 +17,7 @@ export class UploadComponent implements OnInit {
 
   ngOnInit() {
     this.uploader = new FileUploader({
-      url: '',
+      url: 'http://localhost:3000/api/data',
     });
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.hasBaseDropZoneOver = false;
