@@ -19,6 +19,7 @@ export class UploadComponent implements OnInit {
     this.uploader = new FileUploader({
       url: '',
     });
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.hasBaseDropZoneOver = false;
     this.response = '';
 
