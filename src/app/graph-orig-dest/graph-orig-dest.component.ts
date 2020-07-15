@@ -83,7 +83,7 @@ export class GraphOrigDestComponent implements OnInit {
         datasets: [{
           label: 'Most searched for destination',
           data: this.datasetDest,
-          backgroundColor: ["#f27173", , , , , , , , "#444"],
+          backgroundColor: ["#006ab3", , , , , , , , "#444"],
           borderWidth: 1
         }]
       },
@@ -102,7 +102,7 @@ export class GraphOrigDestComponent implements OnInit {
         datasets: [{
           label: 'Most searched for origin',
           data: this.datasetOrig,
-          backgroundColor: ["#f27173", , , , , , , , "#444"],
+          backgroundColor: ["#006ab3", , , , , , , , "#444"],
           borderWidth: 1
         }]
       },
