@@ -1,4 +1,4 @@
 export class OrigCount {
-    name: string;
-    count: number;
+    Origin: string;
+    Counts: number;
     }

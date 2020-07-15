@@ -1,4 +1,4 @@
 export class DestCount {
-    name: string;
-    count: number;
+    Destination: string;
+    Counts: number;
     }

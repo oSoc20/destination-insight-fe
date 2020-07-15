@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'
 import * as Chart from 'chart.js';
 import { DataService } from '../service/data.service';
 import { DestCount } from '../models/destCount';
@@ -10,7 +11,10 @@ import { OrigCount } from '../models/origCount';
   styleUrls: ['./graph-orig-dest.component.css']
 })
 export class GraphOrigDestComponent implements OnInit {
-  
+
+  public loadingDestinations = false;
+  public loadingOrigins = false;
+
   canvasOrig: any;
   ctxOrig: any;
 
@@ -20,54 +24,89 @@ export class GraphOrigDestComponent implements OnInit {
   public dataDest: DestCount[];
   public dataOrig: OrigCount[];
 
+  public labelsDest: string[] = [];
+  public datasetDest: number[] = [];
+
+  public labelsOrig: string[] = [];
+  public datasetOrig: number[] = [];
+
+
   constructor(private ds: DataService) { }
 
   ngOnInit(): void {
+    //gets the data for the destination count
     this.getDestCountData();
-    this.getOrigCountData();  
-    this.generateDestChart();
-    this.generateOrigChart();
+    //gets the data for the origin count
+    this.getOrigCountData();
+
   }
 
-  getDestCountData(){  
-    this.ds.getDestCountData().subscribe(data => { this.dataDest = data; console.log(data)}, error => { console.error(error); });
-   }
+  //gets the data for the destination count
+  getDestCountData() {
+    this.loadingDestinations = true;
+    //receive data
+    this.ds.getDestCountData().subscribe(data => {
+      this.dataDest = data; console.log(data)
+      this.dataDest.forEach(data => this.labelsDest.push(data.Destination));
+      this.dataDest.forEach(data => this.datasetDest.push(data.Counts));
+      this.generateDestChart();
+      this.loadingDestinations = false;
+    }, error => { console.error(error); });
 
-   getOrigCountData(){
-    this.ds.getOrigCountData().subscribe(data => { this.dataOrig = data; console.log(data)}, error => { console.error(error); });
-   }
 
-   generateDestChart(){
+  }
+
+  //gets the data for the origin count
+  getOrigCountData() {
+    this.loadingOrigins = true;
+
+    this.ds.getOrigCountData().subscribe(data => {
+      this.dataOrig = data; console.log(this.dataOrig);
+      this.dataOrig.forEach(item => {
+        this.labelsOrig.push(item.Origin);
+      });
+      this.dataOrig.forEach(data => this.datasetOrig.push(data.Counts));
+      this.generateOrigChart();
+      this.loadingDestinations = false;
+    }, error => { console.error(error); });
+
+  }
+
+  //generates the destination chart
+  generateDestChart() {
     this.canvasDest = document.getElementById('destChart');
     this.ctxDest = this.canvasDest.getContext('2d');
     let myChart = new Chart(this.ctxDest, {
       type: 'bar',
       data: {
-          labels: ["USA", "Spain", "Italy", "France", "Germany", "UK", "Turkey", "Iran", "China", "Russia", "Brazil", "Belgium", "Canada", "Netherlands", "Switzerland", "India", "Portugal", "Peru", "Ireland", "Sweden"],
-          datasets: [{
-              label: 'Total cases.',
-              data: [886789, 213024, 189973, 158183, 153129, 138078, 101790, 87026, 82804, 62773, 50036, 42797, 42110, 35729, 28496, 23502, 22353, 20914, 17607, 16755],
-              backgroundColor: ["red", , , , , , , , "orange"],
-              borderWidth: 1
-          }]
+        labels: this.labelsDest,
+        datasets: [{
+          label: 'Most searched for destination',
+          data: this.datasetDest,
+          backgroundColor: ["#f27173", , , , , , , , "#444"],
+          borderWidth: 1
+        }]
       },
       options: {}
-    })}
-   
-   generateOrigChart(){
+    })
+  }
+
+  //generates the origin chart
+  generateOrigChart() {
     this.canvasOrig = document.getElementById('origChart');
     this.ctxOrig = this.canvasOrig.getContext('2d');
-    let myChart = new Chart(this.canvasOrig, {
+    let myChart = new Chart(this.ctxOrig, {
       type: 'bar',
       data: {
-          labels: ["USA", "Spain", "Italy", "France", "Germany", "UK", "Turkey", "Iran", "China", "Russia", "Brazil", "Belgium", "Canada", "Netherlands", "Switzerland", "India", "Portugal", "Peru", "Ireland", "Sweden"],
-          datasets: [{
-              label: 'Total cases.',
-              data: [886789, 213024, 189973, 158183, 153129, 138078, 101790, 87026, 82804, 62773, 50036, 42797, 42110, 35729, 28496, 23502, 22353, 20914, 17607, 16755],
-              backgroundColor: ["red", , , , , , , , "orange"],
-              borderWidth: 1
-          }]
+        labels: this.labelsOrig,
+        datasets: [{
+          label: 'Most searched for origin',
+          data: this.datasetOrig,
+          backgroundColor: ["#f27173", , , , , , , , "#444"],
+          borderWidth: 1
+        }]
       },
       options: {}
-    })}
+    })
+  }
 }
