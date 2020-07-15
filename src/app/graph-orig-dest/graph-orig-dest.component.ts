@@ -4,6 +4,7 @@ import * as Chart from 'chart.js';
 import { DataService } from '../service/data.service';
 import { DestCount } from '../models/destCount';
 import { OrigCount } from '../models/origCount';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-graph-orig-dest',
