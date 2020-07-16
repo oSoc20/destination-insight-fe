@@ -1,60 +1,37 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div class="card mb-3">
-          <div class="card-body">
-            </div>
-            <div class="container">
-              <p class="h4">Generate most searched origins and destinations graphs</p>
-              <div class="row">
-                <div class="col-sm">
-                  <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="addon-wrapping">Start date</span>
-                    </div>
-                    <input type="date" class="form-control" placeholder="startDate" id="startDate" aria-label="startDate" aria-describedby="addon-wrapping">
-                  </div>
-                </div>
-                <div class="col-sm">
-                  <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="addon-wrapping">End date</span>
-                    </div>
-                    <input type="date" class="form-control" placeholder="startDate" id="endDate" aria-label="startDate" aria-describedby="addon-wrapping">
-                  </div>
-                </div>
-                <div class="col-sm">
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01">Type of search</label>
-                    </div>
-                    <select class="custom-select" id="typeSearch">
-                      <option selected>Select a type of search</option>
-                      <option value="1">Request</option>
-                      <option value="2">Travel</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="addon-wrapping">Number of rows</span>
-                    </div>
-                    <input type="number" class="form-control" id="numberRows" placeholder="number of rows" aria-label="numberRows" aria-describedby="addon-wrapping">
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <button type="button" class="btn btn-primary" id="generate">Generate graph</button>
-                </div>
-              </div>
-            </div>
-        </div>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputStartDate">Start Date</label>
+        <input type="date" class="form-control" id="inputStartDate">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputEndDate">End Date</label>
+        <input type="date" class="form-control" id="inputEndDate">
+      </div>
     </div>
-  </div>
-</div>
-  
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputTypeSearch">Type of Search</label>
+        <select id="inputTypeSearch" class="form-control">
+          <option selected>Choose...</option>
+          <option>Request</option>
+          <option>Travel</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputRows">Number of rows</label>
+        <input type="number" class="form-control" id="inputRows">
+      </div>
+      <div class="form-group col-md-2">
+        <div class="col-sm-10">
+          <label for="buttonGenerate">Generate graph</label>
+          <button type="submit" class="btn btn-primary">Generate</button>
+        </div>
+      </div>    
+    </div>
+  </form>
+</div>  
   <div class="container">
     <div class="row">
       <div class="col-sm">
