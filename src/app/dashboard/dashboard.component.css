@@ -1,0 +1,11 @@
+.card-img-top {
+    height: 250px;
+    width: 500px;
+    align-self: center;
+    padding-top: 10px;
+}
+
+.grid {
+    padding-top: 20px;
+    padding-right: 20px;
+}
