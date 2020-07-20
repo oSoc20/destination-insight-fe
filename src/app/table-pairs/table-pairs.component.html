@@ -1,0 +1,18 @@
+<div class="container">
+    <table class="table table-bordered text-center">
+        <tr>
+          <th class="text-center">To/From</th>
+          <th class="text-center">Counts</th>
+        </tr>
+        <ng-container *ngFor="let item of data">
+          <tr>
+          <td>
+            <span>{{item.DestinationPairs}}</span>
+          </td>
+          <td>
+            <span>{{item.Counts}}</span>
+          </td>
+        </tr>
+        </ng-container>
+        </table>
+</div>

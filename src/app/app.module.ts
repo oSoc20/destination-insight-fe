@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GraphOrigDestComponent} from './graph-orig-dest/graph-orig-dest.component'
+import { GraphOrigDestComponent} from './graph-orig-dest/graph-orig-dest.component';
+import { TablePairsComponent } from './table-pairs/table-pairs.component'
 
 
 // define the routes
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'graph', component:  GraphOrigDestComponent},
   { path: 'list', component: DataListComponent },
-  { path: 'upload', component: UploadComponent }
+  { path: 'upload', component: UploadComponent },
+  { path: 'table-pairs', component: TablePairsComponent }
 ];
 
 @NgModule({
@@ -36,7 +38,7 @@ const appRoutes: Routes = [
     FileUploadModule
   ],
   declarations: [AppComponent,
-    DataListComponent, UploadComponent, DashboardComponent],
+    DataListComponent, UploadComponent, DashboardComponent, TablePairsComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })

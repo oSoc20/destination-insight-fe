@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Data } from '../models/data';
 import { DestCount} from '../models/destCount';
 import { OrigCount} from '../models/origCount';
+import { OrigDestPairs } from '../models/origDestPairs';
 
 @Injectable()
 export class DataService {
@@ -29,6 +30,11 @@ export class DataService {
    getOrigCountData(): Observable<OrigCount[]>{
       let url = `${this.dataServiceURI}/cntOrig`;
       return this.http.get<OrigCount[]>(url);
+   }
+
+   getOrigDestPairsData(): Observable<OrigDestPairs[]> {
+      let url = `${this.dataServiceURI}/origDestPairs`;
+      return this.http.get<OrigDestPairs[]>(url);
    }
 
 }
