@@ -4,7 +4,7 @@ import * as Chart from 'chart.js';
 import { DataService } from '../service/data.service';
 import { DestCount } from '../models/destCount';
 import { OrigCount } from '../models/origCount';
-import { FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-graph-orig-dest',
@@ -32,7 +32,9 @@ export class GraphOrigDestComponent implements OnInit {
   public datasetOrig: number[] = [];
 
 
+
   constructor(private ds: DataService) { }
+
 
   ngOnInit(): void {
     //gets the data for the destination count
@@ -40,6 +42,10 @@ export class GraphOrigDestComponent implements OnInit {
     //gets the data for the origin count
     this.getOrigCountData();
 
+  }
+
+  onSubmit(form: NgForm) {
+    console.log('Your form data : ', form.value );
   }
 
   //gets the data for the destination count

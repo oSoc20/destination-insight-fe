@@ -1,19 +1,19 @@
 <div class="container">
-  <form>
+  <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputStartDate">Start Date</label>
-        <input type="date" class="form-control" id="inputStartDate">
+        <input type="date" class="form-control" id="inputStartDate" name="startDate">
       </div>
       <div class="form-group col-md-4">
         <label for="inputEndDate">End Date</label>
-        <input type="date" class="form-control" id="inputEndDate">
+        <input type="date" class="form-control" id="inputEndDate" name="endDate">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputTypeSearch">Type of Search</label>
-        <select id="inputTypeSearch" class="form-control">
+        <select id="inputTypeSearch" class="form-control" name="typeOfSearch">
           <option selected>Choose...</option>
           <option>Request</option>
           <option>Travel</option>
@@ -21,7 +21,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputRows">Number of rows</label>
-        <input type="number" class="form-control" id="inputRows">
+        <input type="number" class="form-control" id="inputRows" name="numberRows">
       </div>
       <div class="form-group col-md-2">
         <div class="col-sm-10">
