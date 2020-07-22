@@ -1,4 +1,4 @@
 export class SearchByTime {
-        Time: string;
+        Date: string;
         Counts: number;
     }

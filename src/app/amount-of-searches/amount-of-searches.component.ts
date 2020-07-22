@@ -37,7 +37,7 @@ export class AmountOfSearchesComponent implements OnInit {
     //receive data
     this.ds.getSearchesByTime().subscribe(data => {
       this.dataByTime = data; console.log(data)
-      this.dataByTime.forEach(data => this.labelsByTime.push(data.Time));
+      this.dataByTime.forEach(data => this.labelsByTime.push(data.Date));
       this.dataByTime.forEach(data => this.datasetByTime.push(data.Counts));
       this.generateByTimeChart();
       this.loadingSearchesByTime = false;
