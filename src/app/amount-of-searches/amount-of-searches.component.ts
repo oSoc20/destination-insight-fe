@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'
 import * as Chart from 'chart.js';
 import { DataService } from '../service/data.service';
-import { DestCount } from '../models/destCount';
-import { OrigCount } from '../models/origCount';
+import { SearchByTime } from '../models/srchByTime';
+import { SearchByHour } from '../models/srchByHour';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -13,97 +13,49 @@ import { FormControl } from '@angular/forms';
 })
 export class AmountOfSearchesComponent implements OnInit {
 
-  public loadingDestinations = false;
-  public loadingOrigins = false;
+  public loadingSearchesByTime = false;
+  
+  canvasByTime: any;
+  ctxByTime: any;
 
-  canvasOrig: any;
-  ctxOrig: any;
 
-  canvasDest: any;
-  ctxDest: any;
+  public dataByTime: SearchByTime[];
 
-  public dataDest: DestCount[];
-  public dataOrig: OrigCount[];
-
-  public labelsDest: string[] = [];
-  public datasetDest: number[] = [];
-
-  public labelsOrig: string[] = [];
-  public datasetOrig: number[] = [];
+  public labelsByTime: string[] = [];
+  public datasetByTime: number[] = [];
 
 
   constructor(private ds: DataService) { }
 
   ngOnInit(): void {
-    //gets the data for the destination count
-    this.getDestCountData();
-    //gets the data for the origin count
-    this.getOrigCountData();
-
+    this.getByTimeData();
   }
 
-  //gets the data for the destination count
-  getDestCountData() {
-    this.loadingDestinations = true;
+
+  getByTimeData() {
+    this.loadingSearchesByTime = true;
     //receive data
-    this.ds.getDestCountData().subscribe(data => {
-      this.dataDest = data; console.log(data)
-      this.dataDest.forEach(data => this.labelsDest.push(data.Destination));
-      this.dataDest.forEach(data => this.datasetDest.push(data.Counts));
-      this.generateDestChart();
-      this.loadingDestinations = false;
+    this.ds.getSearchesByTime().subscribe(data => {
+      this.dataByTime = data; console.log(data)
+      this.dataByTime.forEach(data => this.labelsByTime.push(data.Time));
+      this.dataByTime.forEach(data => this.datasetByTime.push(data.Counts));
+      this.generateByTimeChart();
+      this.loadingSearchesByTime = false;
     }, error => { console.error(error); });
 
 
   }
 
-  //gets the data for the origin count
-  getOrigCountData() {
-    this.loadingOrigins = true;
-
-    this.ds.getOrigCountData().subscribe(data => {
-      this.dataOrig = data; console.log(this.dataOrig);
-      this.dataOrig.forEach(item => {
-        this.labelsOrig.push(item.Origin);
-      });
-      this.dataOrig.forEach(data => this.datasetOrig.push(data.Counts));
-      this.generateOrigChart();
-      this.loadingDestinations = false;
-    }, error => { console.error(error); });
-
-  }
-
-  //generates the destination chart
-  generateDestChart() {
-    this.canvasDest = document.getElementById('destChart');
-    this.ctxDest = this.canvasDest.getContext('2d');
-    let myChart = new Chart(this.ctxDest, {
+  generateByTimeChart() {
+    this.canvasByTime = document.getElementById('ByTimeChart');
+    this.ctxByTime = this.canvasByTime.getContext('2d');
+    let myChart = new Chart(this.ctxByTime, {
       type: 'line',
       data: {
-        labels: this.labelsDest,
+        labels: this.labelsByTime,
         datasets: [{
           label: 'Most searched for destination',
-          data: this.datasetDest,
-          borderColor: ["#006ab3"],
-          backgroundColor: ["#dadbd9"],
-          borderWidth: 1
-        }]
-      },
-      options: {}
-    })
-  }
-
-  //generates the origin chart
-  generateOrigChart() {
-    this.canvasOrig = document.getElementById('origChart');
-    this.ctxOrig = this.canvasOrig.getContext('2d');
-    let myChart = new Chart(this.ctxOrig, {
-      type: 'line',
-      data: {
-        labels: this.labelsOrig,
-        datasets: [{
-          label: 'Most searched for origin',
-          data: this.datasetOrig,
+          data: this.datasetByTime,
           borderColor: ["#006ab3"],
           backgroundColor: ["#dadbd9"],
           borderWidth: 1
