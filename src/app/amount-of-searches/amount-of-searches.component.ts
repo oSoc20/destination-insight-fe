@@ -54,7 +54,7 @@ export class AmountOfSearchesComponent implements OnInit {
       data: {
         labels: this.labelsByTime,
         datasets: [{
-          label: 'Most searched for destination',
+          label: 'Number of searches per day',
           data: this.datasetByTime,
           borderColor: ["#006ab3"],
           backgroundColor: ["#dadbd9"],
