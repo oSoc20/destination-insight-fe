@@ -1,4 +1,4 @@
 export class SearchByHour {
-    Hour: string;
+    Day_Hour: string;
     Counts: number;
 }
