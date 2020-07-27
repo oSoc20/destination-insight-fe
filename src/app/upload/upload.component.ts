@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { FileUploader } from 'ng2-file-upload';
 
-const URL = 'http://localhost:3000/api/upload';
+const URL = 'http://104.248.81.28/api/data/';
 
 @Component({
   selector: 'app-upload',
@@ -17,7 +17,7 @@ export class UploadComponent implements OnInit {
 
   ngOnInit() {
     this.uploader = new FileUploader({
-      url: 'http://localhost:3000/api/data',
+      url: 'http://104.248.81.28/api/data/',
     });
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.hasBaseDropZoneOver = false;
