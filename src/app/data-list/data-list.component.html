@@ -1,28 +1,30 @@
-<table class="table table-bordered text-center">
-  <tr>
-    <th class="text-center">Origin</th>
-    <th class="text-center">Destination</th>
-    <th class="text-center">Search for arrival</th>
-    <th class="text-center">Date</th>
-    <th class="text-center">Time</th>
-  </tr>
-  <ng-container *ngFor="let item of data">
+<div class="container">
+  <table class="table table-bordered text-center">
     <tr>
-    <td>
-      <span>{{item.origin}}</span>
-    </td>
-    <td>
-      <span>{{item.destination}}</span>
-    </td>
-    <td>
-      <span>{{item.search_for_arrival}}</span>
-    </td>
-    <td>
-      <span>{{item.date_travel}}</span>
-    </td>
-    <td>
-      <span>{{item.time_travel}}</span>
-    </td>
-  </tr>
-  </ng-container>
-  </table>
+      <th class="text-center">Origin</th>
+      <th class="text-center">Destination</th>
+      <th class="text-center">Search for arrival</th>
+      <th class="text-center">Date</th>
+      <th class="text-center">Time</th>
+    </tr>
+    <ng-container *ngFor="let item of data">
+      <tr>
+      <td>
+        <span>{{item.origin}}</span>
+      </td>
+      <td>
+        <span>{{item.destination}}</span>
+      </td>
+      <td>
+        <span>{{item.search_for_arrival}}</span>
+      </td>
+      <td>
+        <span>{{item.date_travel}}</span>
+      </td>
+      <td>
+        <span>{{item.time_travel}}</span>
+      </td>
+    </tr>
+    </ng-container>
+    </table>
+</div>
