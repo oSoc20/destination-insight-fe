@@ -1,4 +1,6 @@
+import { Count } from '../models/count';
+
 export class SearchByHour {
-    Day_Hour: string;
-    Counts: number;
+    Day: string
+    Counts: Count
 }

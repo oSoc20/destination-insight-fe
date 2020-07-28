@@ -17,18 +17,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraphOrigDestComponent} from './graph-orig-dest/graph-orig-dest.component';
 import { TablePairsComponent } from './table-pairs/table-pairs.component';
 import { AmountOfSearchesComponent } from './amount-of-searches/amount-of-searches.component';
-import { SearchesByHourComponent } from './searches-by-hour/searches-by-hour.component'
+import { SearchesByHourComponent } from './searches-by-hour/searches-by-hour.component';
+import { AuthGuard } from './service/auth.guard';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 // define the routes
 const appRoutes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'graph', component:  GraphOrigDestComponent},
-  { path: 'list', component: DataListComponent },
-  { path: 'upload', component: UploadComponent },
-  { path: 'table-pairs', component: TablePairsComponent },
-  { path: 'number-searches', component: AmountOfSearchesComponent },
-  { path: 'srchHours', component: SearchesByHourComponent }
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'graph', component:  GraphOrigDestComponent, canActivate: [AuthGuard]},
+  { path: 'list', component: DataListComponent, canActivate: [AuthGuard] },
+  { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
+  { path: 'table-pairs', component: TablePairsComponent, canActivate: [AuthGuard] },
+  { path: 'number-searches', component: AmountOfSearchesComponent, canActivate: [AuthGuard] },
+  { path: 'srchHours', component: SearchesByHourComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
