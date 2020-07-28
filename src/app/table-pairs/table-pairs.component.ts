@@ -10,6 +10,8 @@ import { DataService } from '../service/data.service';
 export class TablePairsComponent implements OnInit {
 
   //headers = ["Origin-Destination","Counts"];
+  startDate = "2000-01-01";
+  endDate = "2050-01-01";
   
   public data: OrigDestPairs[];
 

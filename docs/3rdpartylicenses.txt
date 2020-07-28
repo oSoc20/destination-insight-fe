@@ -135,6 +135,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 ng2-file-upload
 
+ngx-spinner
+MIT
+
 rxjs
 Apache-2.0
                                Apache License
