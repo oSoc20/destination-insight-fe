@@ -6,6 +6,9 @@
     <a>
       <strong>Destination Insight</strong>
     </a>
+    <div *ngIf="auth.userProfile$ | async as profile">
+      <a class="nav-link" >Welcome {{profile.name}}!</a>
+    </div>
     <a></a>
     <a class="nav-link main-link" routerLink="/" routerLinkActive="active">
       Dashboard
@@ -13,6 +16,9 @@
     <a class="nav-link" routerLink="/upload" routerLinkActive="active">
       Upload file
     </a>
+    <a class="nav-link"  (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</a>
+ 
+    <a class="nav-link"  (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a>
   </div>
   <div class="col-md-12 img-bottom-dots">
     <img class="img-fluid" src="assets/bottom-dots.png"/>
