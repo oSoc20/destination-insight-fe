@@ -7,12 +7,13 @@ import { OrigCount} from '../models/origCount';
 import { OrigDestPairs } from '../models/origDestPairs';
 import { SearchByTime } from '../models/srchByTime';
 import { SearchByHour } from '../models/srchByHour';
+import { Count } from '../models/count';
 
 @Injectable()
 export class DataService {
 
-   public dataServiceURI: string = 'http://104.248.81.28/api/data';
-   //public dataServiceURI: string = 'http://localhost:3000/api/data/';
+   //public dataServiceURI: string = 'http://104.248.81.28/api/data/';
+   public dataServiceURI: string = 'http://localhost:3000/api/data';
    private contentHeaders: HttpHeaders;
 
    constructor(private http: HttpClient) {
@@ -45,9 +46,9 @@ export class DataService {
       return this.http.get<SearchByTime[]>(url);
    }
 
-   getSearchesByHour(): Observable<SearchByHour[]> {
+   getSearchesByHour(): Observable<SearchByHour> {
       let url = `${this.dataServiceURI}/searchesByHour`;
-      return this.http.get<SearchByHour[]>(url);
+      return this.http.get<SearchByHour>(url);
    }
 
 }
