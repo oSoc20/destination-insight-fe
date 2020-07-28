@@ -15,6 +15,9 @@ import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 })
 export class SearchesByHourComponent implements OnInit {
 
+  startDate = "2000-01-01";
+  endDate = "2050-01-01";
+
   public loadingSearchesByHour = false;
   
   canvasByHour: any;

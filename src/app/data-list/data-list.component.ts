@@ -8,6 +8,8 @@ import { DataService } from '../service/data.service';
   styleUrls: ['./data-list.component.css']
 })
 export class DataListComponent implements OnInit {
+  startDate = "2000-01-01";
+  endDate = "2050-01-01";
 
   headers = ["origin","destination","search_for_arrival","date_travel","time_travel"];
   

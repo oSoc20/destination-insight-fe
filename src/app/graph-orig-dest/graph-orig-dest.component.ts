@@ -13,6 +13,9 @@ import { FormControl } from '@angular/forms';
 })
 export class GraphOrigDestComponent implements OnInit {
 
+  startDate = "2000-01-01";
+  endDate = "2050-01-01";
+
   public loadingDestinations = false;
   public loadingOrigins = false;
 
@@ -46,6 +49,10 @@ export class GraphOrigDestComponent implements OnInit {
   getDestCountData() {
     this.loadingDestinations = true;
     //receive data
+    let body = {
+      startDate: this.startDate,
+      endDate: this.endDate
+    }
     this.ds.getDestCountData().subscribe(data => {
       this.dataDest = data; console.log(data)
       this.dataDest.forEach(data => this.labelsDest.push(data.Destination));
@@ -60,7 +67,10 @@ export class GraphOrigDestComponent implements OnInit {
   //gets the data for the origin count
   getOrigCountData() {
     this.loadingOrigins = true;
-
+    let body = {
+      startDate: this.startDate,
+      endDate: this.endDate
+    }
     this.ds.getOrigCountData().subscribe(data => {
       this.dataOrig = data; console.log(this.dataOrig);
       this.dataOrig.forEach(item => {

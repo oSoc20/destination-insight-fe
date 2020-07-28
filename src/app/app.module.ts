@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { DataListComponent } from './data-list/data-list.component';
 import { UploadComponent } from './upload/upload.component';
 import { DataService } from './service/data.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 
@@ -19,7 +19,7 @@ import { TablePairsComponent } from './table-pairs/table-pairs.component';
 import { AmountOfSearchesComponent } from './amount-of-searches/amount-of-searches.component';
 import { SearchesByHourComponent } from './searches-by-hour/searches-by-hour.component';
 import { AuthGuard } from './service/auth.guard';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 // define the routes
 const appRoutes: Routes = [
@@ -40,7 +40,8 @@ const appRoutes: Routes = [
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    FileUploadModule
+    FileUploadModule,
+    NgxSpinnerModule
   ],
   declarations: [AppComponent,
     DataListComponent, UploadComponent, DashboardComponent, TablePairsComponent, AmountOfSearchesComponent, SearchesByHourComponent],
