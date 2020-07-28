@@ -4,8 +4,10 @@
       <th class="text-center">Origin</th>
       <th class="text-center">Destination</th>
       <th class="text-center">Search for arrival</th>
-      <th class="text-center">Date</th>
-      <th class="text-center">Time</th>
+      <th class="text-center">Date Travel</th>
+      <th class="text-center">Time Travel</th>
+      <th class="text-center">Date Request</th>
+      <th class="text-center">Time Request</th>
     </tr>
     <ng-container *ngFor="let item of data">
       <tr>
@@ -19,10 +21,16 @@
         <span>{{item.search_for_arrival}}</span>
       </td>
       <td>
-        <span>{{item.date_travel}}</span>
+        <span>{{item.date_travel.split('T')[0] }}</span>
       </td>
       <td>
-        <span>{{item.time_travel}}</span>
+        <span>{{item.time_travel.split('T')[0] }}</span>
+      </td>
+      <td>
+        <span>{{item.date_request.split('T')[0] }}</span>
+      </td>
+      <td>
+        <span>{{item.time_request.split('T')[0] }}</span>
       </td>
     </tr>
     </ng-container>
