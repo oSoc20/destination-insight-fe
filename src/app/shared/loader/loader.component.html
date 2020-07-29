@@ -1,0 +1,5 @@
+<div *ngIf="isLoading | async" class="overlay">
+    <h3 style="color:white;">We are fetching the data, this might take a while.</h3>
+    <mat-progress-spinner class="spinner" [color]="color" [mode]="mode" [value]="value">
+    </mat-progress-spinner>
+  </div>

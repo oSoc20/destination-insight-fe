@@ -19,7 +19,10 @@ import { TablePairsComponent } from './table-pairs/table-pairs.component';
 import { AmountOfSearchesComponent } from './amount-of-searches/amount-of-searches.component';
 import { SearchesByHourComponent } from './searches-by-hour/searches-by-hour.component';
 import { AuthGuard } from './service/auth.guard';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { LoaderService } from './service/loader.service';
+import { LoaderInterceptor } from './service/loader.interceptor'
 
 // define the routes
 const appRoutes: Routes = [
@@ -41,11 +44,11 @@ const appRoutes: Routes = [
     NgbModule,
     BrowserAnimationsModule,
     FileUploadModule,
-    NgxSpinnerModule
+    MatProgressSpinnerModule
   ],
   declarations: [AppComponent,
-    DataListComponent, UploadComponent, DashboardComponent, TablePairsComponent, AmountOfSearchesComponent, SearchesByHourComponent],
-  providers: [DataService],
+    DataListComponent, UploadComponent, DashboardComponent, TablePairsComponent, AmountOfSearchesComponent, SearchesByHourComponent, LoaderComponent],
+  providers: [DataService, LoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
