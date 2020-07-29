@@ -12,7 +12,7 @@ import { Count } from '../models/count';
 @Injectable()
 export class DataService {
 
-   public dataServiceURI: string = 'http://104.248.81.28/api/data/';
+   public dataServiceURI: string = 'http://104.248.81.28/api/data';
    //public dataServiceURI: string = 'http://localhost:3000/api/data';
    private contentHeaders: HttpHeaders;
 
