@@ -23,13 +23,13 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 // define the routes
 const appRoutes: Routes = [
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'graph', component:  GraphOrigDestComponent, canActivate: [AuthGuard]},
   { path: 'list', component: DataListComponent, canActivate: [AuthGuard] },
   { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
   { path: 'table-pairs', component: TablePairsComponent, canActivate: [AuthGuard] },
   { path: 'number-searches', component: AmountOfSearchesComponent, canActivate: [AuthGuard] },
-  { path: 'srchHours', component: SearchesByHourComponent, canActivate: [AuthGuard] }
+  { path: 'srchHours', component: SearchesByHourComponent, canActivate: [AuthGuard] },
+  { path: '', component: DashboardComponent},
 ];
 
 @NgModule({
